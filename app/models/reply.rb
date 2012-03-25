@@ -12,19 +12,19 @@
 
 class Reply < ActiveRecord::Base
 
-	attr_accessible :user_id, :post_id, :body
+  attr_accessible :user_id, :post_id, :body
 
-	belongs_to :user
+  belongs_to :user
 
-	belongs_to :post
+  belongs_to :post
 
-	validates :user_id,
-		presence: true
+  validates :user_id,
+    presence: true
 
-	validates :post_id,
-		presence: true
+  validates :post_id,
+    presence: true
 
-	validates :body,
-		presence: true
+  validates :body,
+    presence: true
 
 end
