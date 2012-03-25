@@ -1,4 +1,12 @@
 BbSys::Application.routes.draw do
+
+  match '/home', to: 'static_pages#home'
+  match '/about', to: 'static_pages#about'
+  match '/help', to: 'static_pages#help'
+
+  resources :users
+  root to: "static_pages#home"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

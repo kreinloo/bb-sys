@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id              :integer         not null, primary key
-#  username        :string(255)
+#  name            :string(255)
 #  email           :string(255)
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
@@ -16,7 +16,7 @@ describe User do
 
   before do
     @user = User.new(
-      username: "test_user",
+      name: "test_user",
       email: "mail@example.org",
       password: "password123",
       password_confirmation: "password123"
@@ -25,7 +25,7 @@ describe User do
 
   subject { @user }
 
-  it { should respond_to(:username) }
+  it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
@@ -34,7 +34,7 @@ describe User do
   it { should be_valid }
 
   describe "when name is not present" do
-    before { @user.username = " " }
+    before { @user.name = " " }
     it { should_not be_valid }
   end
 
@@ -44,12 +44,12 @@ describe User do
   end
 
   describe "when name is too long" do
-    before { @user.username = "a" * 21 }
+    before { @user.name = "a" * 21 }
     it { should_not be_valid }
   end
 
   describe "when name is too short" do
-    before { @user.username = "a" * 2 }
+    before { @user.name = "a" * 2 }
     it { should_not be_valid }
   end
 
@@ -100,7 +100,7 @@ describe User do
 
   describe "return value of authenticate method" do
     before { @user.save }
-    let(:found_user) { User.find_by_username(@user.username) }
+    let(:found_user) { User.find_by_name(@user.name) }
 
     describe "with valid password" do
       it { should == found_user.authenticate(@user.password) }

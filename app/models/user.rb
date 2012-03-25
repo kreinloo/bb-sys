@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id              :integer         not null, primary key
-#  username        :string(255)
+#  name            :string(255)
 #  email           :string(255)
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
@@ -12,7 +12,7 @@
 
 class User < ActiveRecord::Base
 
-  attr_accessible :username, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation
 
   has_secure_password
 
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   has_many :replies
 
-  validates :username,
+  validates :name,
     presence: true,
     uniqueness: { case_sensitive: false },
     length: { in: 3..20 }
