@@ -53,6 +53,22 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe "when name is invalid" do
+    names = ["a a", "aaa___", "12name", "test-user-"]
+    names.each do |name|
+      before { @user.name = name }
+      it { should_not be_valid }
+    end
+  end
+
+  describe "when name is valid" do
+    names = ["test-user", "testuser12", "testuser_2", "t-estuser"]
+    names.each do |name|
+      before { @user.name = name }
+      it { should be_valid }
+    end
+  end
+
   describe "when email is invalid" do
     addresses = ["asd@asd,com", "a_sd.com", "user@foo"]
     addresses.each do |address|

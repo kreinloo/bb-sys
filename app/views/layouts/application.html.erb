@@ -48,6 +48,9 @@
 
     <div class="container">
       <div class="content">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
         <div class="row">
           <div class="span12">
             <%= yield %>
@@ -56,7 +59,7 @@
       </div><!--/content-->
 
       <footer>
-        <p>&copy; <a href="https://github.com/kreinloo/bb-sys">This project is at Github</a> 2012</p>
+        <p>&copy; 2012 Kristjan Reinloo | <a href="https://github.com/kreinloo/bb-sys">bb-sys@github</a></p>
       </footer>
 
     </div> <!-- /container -->

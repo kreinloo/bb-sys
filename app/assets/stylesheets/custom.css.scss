@@ -1,0 +1,15 @@
+#errors_explanation {
+  color: #f00;
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 80%;
+  padding: 5px;
+  margin-bottom: 10px;
+}

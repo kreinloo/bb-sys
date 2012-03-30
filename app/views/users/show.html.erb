@@ -1,2 +1,7 @@
-<%= @user.name %>
-<%= @user.email %>
+<% if @user != nil %>
+  name: <%= @user.name %>
+  <br/>
+  email: <%= @user.email %>
+<% else %>
+  User not found.
+<% end %>
