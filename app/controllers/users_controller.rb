@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    redirect_to "/"
   end
 
   def new
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
       flash[:success] = "Registration completed!"
       redirect_to @user
     else
-      render 'new'
+      render "new"
     end
   end
 

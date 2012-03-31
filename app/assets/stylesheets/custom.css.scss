@@ -1,5 +1,35 @@
+@import "bootstrap";
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 20px;
+}
+
+.hero-unit {
+  padding-top: 15px;
+}
+
 #errors_explanation {
   color: #f00;
+  width: 50%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .field_with_errors {
@@ -9,7 +39,7 @@
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 80%;
+  width: 50%;
   padding: 5px;
   margin-bottom: 10px;
 }

@@ -10,12 +10,9 @@
  *
  *= require_self
  *= require_tree .
- *= require bootstrap_and_overrides
 */
 
 .debug_dump {
-  margin-left: 3%;
-  margin-right: 3%;
 }
 
 footer {

@@ -39,7 +39,7 @@
             </ul>
             <ul class="nav pull-right">
               <li><%= link_to "Login", "/login" %></li>
-              <li><%= link_to "Register", "/register" %></li>
+              <li><%= link_to "Sign up", "/signup" %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -51,19 +51,17 @@
         <% flash.each do |key, value| %>
           <div class="alert alert-<%= key %>"><%= value %></div>
         <% end %>
-        <div class="row">
-          <div class="span12">
+          <div class="center hero-unit">
             <%= yield %>
           </div>
-        </div><!--/row-->
       </div><!--/content-->
 
       <footer>
         <p>&copy; 2012 Kristjan Reinloo | <a href="https://github.com/kreinloo/bb-sys">bb-sys@github</a></p>
       </footer>
 
-    </div> <!-- /container -->
     <%= debug(params) if Rails.env.development? %>
+    </div> <!-- /container -->
 
     <!-- Le javascript
     ================================================== -->

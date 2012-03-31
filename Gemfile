@@ -26,13 +26,14 @@ group :development do
 end
 
 group :production do
-#	gem 'pg'
+#  gem 'pg'
 end
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-gem 'twitter-bootstrap-rails'
+#gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

@@ -5,7 +5,7 @@ BbSys::Application.routes.draw do
   match '/help', to: 'static_pages#help'
 
   resources :users
-  match '/register', to: 'users#new'
+  match '/signup', to: 'users#new'
 
   root to: "static_pages#home"
 
