@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    redirect_to "/"
+    redirect_to root_path
   end
 
   def new
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      sign_in @user
       flash[:success] = "Registration completed!"
       redirect_to @user
     else
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
     if User.exists?(params[:id])
       @user = User.find(params[:id])
     else
-      @user = nil
+      render "static_pages/notfound"
     end
   end
 

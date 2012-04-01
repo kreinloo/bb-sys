@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bb-sys</title>
+    <title><%= full_title yield(:title) %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -22,45 +22,21 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-          <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/">BB-SYS</a>
-          <div class="container nav-collapse">
-            <ul class="nav">
-                <li><%= link_to "Home", "/"  %></li>
-                <li><%= link_to "About", "/about"  %></li>
-                <li><%= link_to "Help", "/help"  %></li>
-            </ul>
-            <ul class="nav pull-right">
-              <li><%= link_to "Login", "/login" %></li>
-              <li><%= link_to "Sign up", "/signup" %></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+    <%= render "layouts/header" %>
 
     <div class="container">
-      <div class="content">
-        <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>"><%= value %></div>
-        <% end %>
-          <div class="center hero-unit">
-            <%= yield %>
-          </div>
-      </div><!--/content-->
 
-      <footer>
-        <p>&copy; 2012 Kristjan Reinloo | <a href="https://github.com/kreinloo/bb-sys">bb-sys@github</a></p>
-      </footer>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+      <div class="center hero-unit">
+        <%= yield %>
+      </div>
+
+    <%= render "layouts/footer" %>
 
     <%= debug(params) if Rails.env.development? %>
+
     </div> <!-- /container -->
 
     <!-- Le javascript

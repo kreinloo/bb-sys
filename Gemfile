@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -21,6 +21,7 @@ gem 'jquery-rails'
 
 group :development do
 	gem 'rspec-rails'
+  gem 'capybara'
 	gem 'sqlite3'
 	gem 'annotate', '~> 2.4.1.beta'
 end
