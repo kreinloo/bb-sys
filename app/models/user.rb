@@ -8,6 +8,7 @@
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
 #  password_digest :string(255)
+#  remember_token  :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -42,6 +43,10 @@ class User < ActiveRecord::Base
     presence: true
 
   before_save :create_remember_token
+
+  def to_param
+    name.parameterize
+  end
 
   private
 

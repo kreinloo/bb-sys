@@ -20,9 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if User.exists?(params[:id])
-      @user = User.find(params[:id])
-    else
+    if not @user = User.find_by_name(params[:id])
       render "static_pages/notfound"
     end
   end
