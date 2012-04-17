@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="span12">
+    <h1 class="page-header"><%= @post.title %></h1>
+    <i>author:</i> <b><%= @user.name %></b> <i>date:</i> <b><%= @post.created_at %></b>
+    <div class="hero-unit post">
+      <p>
+      <%= @post.body %>
+      </p>
+    </div>
+  </div>
+</div>

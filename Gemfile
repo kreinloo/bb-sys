@@ -26,6 +26,11 @@ group :development do
 	gem 'annotate', '~> 2.4.1.beta'
 end
 
+group :test do
+  gem 'factory_girl_rails'
+  gem 'launchy'
+end
+
 group :production do
 #  gem 'pg'
 end

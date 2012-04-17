@@ -1,15 +1,12 @@
-<% provide :title, "Sign up" %>
+<% provide :title, "Edit your profile" %>
 
 <div class="row">
   <div class="span6 offset3">
-    <h1 class="page-header">Sign up</h1>
+    <h1 class="page-header">Edit your profile</h1>
 
     <%= form_for @user do |f| %>
 
-      <%= render "shared/error_messages" %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= render "shared/error_messages", :object => f.object %>
 
       <%= f.label :email %>
       <%= f.text_field :email %>
@@ -21,7 +18,7 @@
       <%= f.password_field :password_confirmation %>
 
       <br/>
-      <%= f.submit "Create account", :class => "btn btn-large btn-primary" %>
+      <%= f.submit "Update profile", :class => "btn btn-large btn-primary" %>
 
     <% end %>
   </div>

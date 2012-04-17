@@ -1,14 +1,19 @@
 <% provide :title, "Sign in" %>
-<h1>Sign in</h1>
-<%= form_for :session, :url => sessions_path do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+<div class="row">
+  <div class="span6 offset3">
+    <h1 class="page-header">Sign in</h1>
+    <%= form_for :session, :url => sessions_path do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
 
-  <br/>
-  <%= f.submit "Sign in", :class => "btn btn-large btn-primary" %>
-<% end %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
 
-<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+      <br/>
+      <%= f.submit "Sign in", :class => "btn btn-large btn-primary" %>
+    <% end %>
+
+    <h4 class="center">New user? <%= link_to "Sign up now!", signup_path %></h4>
+  </div>
+</div>

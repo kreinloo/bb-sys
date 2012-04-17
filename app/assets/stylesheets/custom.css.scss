@@ -26,7 +26,7 @@ section {
 
 #errors_explanation {
   color: #f00;
-  width: 50%;
+  width: 100%;
   text-align: left;
   margin-left: auto;
   margin-right: auto;
@@ -39,7 +39,27 @@ section {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 50%;
+  width: 100%;
   padding: 5px;
   margin-bottom: 10px;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 5px;
+}
+
+.footer-left {
+  float: left;
+}
+
+.post {
+  padding-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="span12">
+    <h1 class="page-header">Latest posts</h1>
+    <% @posts.each do |post| %>
+      <div>
+        <a href=<%= "/posts/" + post.id.to_s %>><h3><%= post.title %></h2></a>
+        <i><%= post.created_at %></i>
+      </div>
+      <br/>
+    <% end %>
+  </div>
+</div>
