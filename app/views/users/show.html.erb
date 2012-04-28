@@ -1,7 +1,11 @@
 <% provide :title, @user.name %>
 <div class="row">
-  <div class="span6 offset3">
-    <h1><%= @user.name %></h1>
-    <h3><%= @user.email %></h3>
+  <div class="span12">
+    <div class="userinfo">
+      <h1><%= @user.name %></h1>
+      <h3><%= @user.email %></h3>
+      posts: <%= @user.posts.count %><br/>
+      replies: <%= @user.replies.count %><br/>
+    </div>
   </div>
 </div>

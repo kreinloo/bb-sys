@@ -1,21 +1,20 @@
 BbSys::Application.routes.draw do
 
-  match '/home', to: 'static_pages#home'
-  match '/about', to: 'static_pages#about'
+  match '/home', :to => 'static_pages#home', :via => :get
+  match '/about', :to => 'static_pages#about', :via => :get
 
   resources :users
-  match '/signup', to: 'users#new'
+  match '/signup', :to => 'users#new', :via => :get
 
-  resources :posts
-  match "/posts", to: "posts#index"
+  resources :posts, :only => [:index, :new, :create, :show]
 
-  resources  :replies
+  resources :replies, :only => [:create]
 
   resources :sessions, only: [:new, :create, :destroy]
-  match "/signin", to: "sessions#new"
-  match "/signout", to: "sessions#destroy", via: :delete
+  match "/signin", :to => "sessions#new", :via => :get
+  match "/signout", :to => "sessions#destroy", :via => :delete
 
-  root to: "static_pages#home"
+  root :to => "static_pages#home", :via => :get
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -25,20 +25,27 @@
               <% end %>
             </li>
 
+            <li class="divider-vertical"></li>
+            <li>
+              <%= link_to users_path do %>
+              <i class="icon-user icon-white"></i> Users
+              <% end %>
+            </li>
+
         </ul>
 
         <ul class="nav pull-right">
         <% if signed_in? %>
           <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="icon-user icon-white"></i> Account <b class="caret"></b>
+              <i class="icon-cog icon-white"></i> Account <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to current_user do %>
-                <i class="icon-user"></i> Profile<% end %>
+                <i class="icon-star"></i> Profile<% end %>
               </li>
               <li><%= link_to edit_user_path(current_user) do %>
-                <i class="icon-cog"></i> Settings<% end %>
+                <i class="icon-pencil"></i> Settings<% end %>
               </li>
               <li class="divider"></li>
               <li><%= link_to signout_path, { method: "delete" } do %>

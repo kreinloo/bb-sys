@@ -12,7 +12,7 @@
 
 class Reply < ActiveRecord::Base
 
-  attr_accessible :user_id, :post_id, :body
+  attr_accessible :body
 
   belongs_to :user
 
@@ -26,5 +26,7 @@ class Reply < ActiveRecord::Base
 
   validates :body,
     presence: true
+
+  default_scope :order => "replies.created_at DESC"
 
 end

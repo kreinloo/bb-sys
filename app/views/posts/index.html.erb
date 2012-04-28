@@ -1,12 +1,20 @@
 <div class="row">
   <div class="span12">
+
     <h1 class="page-header">Latest posts</h1>
+    <%= button_to "Create new post", new_post_path,
+      :class => "btn btn-large btn-primary", :method => :get %>
+
+    <%= will_paginate %>
+    <ul class="list-ul">
     <% @posts.each do |post| %>
-      <div>
-        <a href=<%= "/posts/" + post.id.to_s %>><h3><%= post.title %></h2></a>
-        <i><%= post.created_at %></i>
-      </div>
-      <br/>
+      <li>
+        <a href=<%= post_path(post) %>><h3><%= post.title %></h2></a>
+        <i>posted <%= time_ago_in_words(post.created_at) %>
+          ago by <%= link_to post.user.name, user_path(post.user) %>.</i>
+      </li>
     <% end %>
+    </ul>
+    <%= will_paginate %>
   </div>
 </div>

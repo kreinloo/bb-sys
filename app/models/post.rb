@@ -12,7 +12,7 @@
 
 class Post < ActiveRecord::Base
 
-  attr_accessible :user_id, :title, :body
+  attr_accessible :title, :body
 
   belongs_to :user
 
@@ -27,5 +27,7 @@ class Post < ActiveRecord::Base
 
   validates :body,
     presence: true
+
+  default_scope :order => "posts.created_at DESC"
 
 end

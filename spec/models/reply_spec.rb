@@ -14,12 +14,14 @@ require 'spec_helper'
 
 describe Reply do
 
+  let(:user) { FactoryGirl.create(:user) }
+  let(:post) { FactoryGirl.create(:post, :user => user) }
+
   before do
-    @reply = Reply.new(
-      user_id: 1,
-      post_id: 1,
-      body: "This is a reply to a sample post."
-    )
+    @reply = FactoryGirl.create(
+      :reply,
+      :user => user,
+      :post => post)
   end
 
   subject { @reply }
@@ -28,6 +30,8 @@ describe Reply do
   it { should respond_to :post_id }
   it { should respond_to :body }
   it { should be_valid }
+  its(:user) { should == user }
+  its(:post) { should == post }
 
   describe "when user_id is not present" do
     before { @reply.user_id = nil }
@@ -42,6 +46,19 @@ describe Reply do
   describe "when body is not present" do
     before { @reply.body = nil }
     it { should_not be_valid }
+  end
+
+  describe "accessible attributes" do
+    it "should not allow access to user_id" do
+      expect do
+        Reply.new(:user_id => user.id)
+      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
+    it "should not allow access to post_id" do
+      expect do
+        Reply.new(:post_id => post.id)
+      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
   end
 
 end

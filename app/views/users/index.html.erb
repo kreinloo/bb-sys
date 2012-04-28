@@ -1,16 +1,17 @@
 <% provide :title, "All users" %>
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span12">
     <h1 class="page-header">All users</h1>
 
-    <ul class="users">
+    <%= will_paginate %>
+    <ul class="list-ul">
       <% @users.each do |user| %>
         <li>
-          <%= link_to user.name, user %>
+          <h3><%= link_to user.name, user %></h3>
         </li>
       <% end %>
     </ul>
-
+    <%= will_paginate %>
   </div>
 </div>

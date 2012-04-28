@@ -7,4 +7,16 @@ FactoryGirl.define do
     password_confirmation "very_good_password"
   end
 
+  factory :post do
+    title "Sample post"
+    body "Sample body"
+    user
+  end
+
+  factory :reply do
+    body "Sample reply"
+    post
+    user
+  end
+
 end

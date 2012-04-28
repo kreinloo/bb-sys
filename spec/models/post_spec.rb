@@ -14,11 +14,12 @@ require 'spec_helper'
 
 describe Post do
 
+  let(:user) { FactoryGirl.create(:user) }
+
   before do
-    @post = Post.new(
-      user_id: 1,
-      title: "This is a sample post!",
-      body: "This is a body of sample post!"
+    @post = user.posts.build(
+      :title => "Sample post",
+      :body => "This is a sample post"
     )
   end
 
@@ -28,6 +29,7 @@ describe Post do
   it { should respond_to :title }
   it { should respond_to :body }
   it { should be_valid }
+  its(:user) { should == user }
 
   describe "when user_id is not present" do
     before { @post.user_id = nil }
@@ -52,6 +54,14 @@ describe Post do
   describe "when body is not present" do
     before { @post.body = "" }
     it { should_not be_valid }
+  end
+
+  describe "accessible attributes" do
+    it "should not allow access to user_id" do
+      expect do
+        Post.new(:user_id => user.id)
+      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
   end
 
 end

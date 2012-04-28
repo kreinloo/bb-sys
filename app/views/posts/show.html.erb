@@ -1,7 +1,9 @@
 <div class="row">
   <div class="span12">
+    <%= button_to "Back to posts", posts_path,
+      :class => "btn btn-large btn-primary", :method => :get %>
     <h1 class="page-header"><%= @post.title %></h1>
-    <i>author:</i> <b><%= @user.name %></b> <i>date:</i> <b><%= @post.created_at %></b>
+    <i>author:</i> <b><%= @user.name %></b> <i>posted:</i> <b><%= time_ago_in_words(@post.created_at) %> ago</b>
     <div class="hero-unit post">
       <p>
       <%= @post.body %>

@@ -1,10 +1,12 @@
+require "will_paginate/array"
+
 class UsersController < ApplicationController
 
   before_filter :signed_in_user, :only => [:index, :edit, :update]
   before_filter :correct_user,   :only => [:edit, :update]
 
   def index
-    @users = User.all
+    @users = User.paginate(:page => params[:page])
   end
 
   def new
@@ -42,21 +44,5 @@ class UsersController < ApplicationController
       render "static_pages/notfound"
     end
   end
-
-  private
-
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_path, :notice => "Please sign in."
-      end
-    end
-
-    def correct_user
-      #@user = User.find_by_name(params[:id])
-      @user = User.find(:first, :conditions =>
-        [ "lower(name) = ?", params[:id].downcase ])
-      redirect_to(root_path) unless current_user?(@user)
-    end
 
 end

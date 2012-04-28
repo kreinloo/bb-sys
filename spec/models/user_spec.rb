@@ -136,4 +136,44 @@ describe User do
     its(:remember_token) { should_not be_blank }
   end
 
+  describe "post associations" do
+
+    before { @user.save }
+    let!(:older_post) do
+      FactoryGirl.create(:post, :user => @user, :created_at => 1.day.ago)
+    end
+    let!(:newer_post) do
+      FactoryGirl.create(:post, :user => @user, :created_at => 1.hour.ago)
+    end
+
+    it "shoud have posts in right order" do
+      @user.posts.should == [ newer_post, older_post ]
+    end
+
+  end
+
+  describe "reply associations" do
+    before do
+      @user.save
+      @post = FactoryGirl.create(:post, :user => @user)
+    end
+    let!(:older_reply) do
+      FactoryGirl.create(
+        :reply,
+        :user => @user,
+        :post => @post,
+        :created_at => 1.day.ago)
+    end
+    let!(:newer_reply) do
+      FactoryGirl.create(
+        :reply,
+        :user => @user,
+        :post => @post,
+        :created_at => 1.hour.ago)
+    end
+    it "should have replies in right order" do
+      @user.replies.should == [ newer_reply, older_reply ]
+    end
+  end
+
 end
