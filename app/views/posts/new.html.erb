@@ -2,8 +2,6 @@
 
 <div class="row">
   <div class="span12">
-    <%= button_to "Back to posts", posts_path,
-      :class => "btn btn-large btn-primary", :method => :get %>
 
     <h1 class="page-header">Create new post</h1>
 
@@ -18,8 +16,11 @@
       <%= f.text_area :body %>
 
       <br/>
-      <%= f.submit "Create new post", :class => "btn btn-large btn-primary" %>
+      <%= f.submit "Create new post",
+        :class => "btn btn-large btn-primary btn-left" %>
 
     <% end %>
+    <%= button_to "Back to posts", posts_path,
+      :class => "btn btn-large btn-danger btn-posts-back btn-left", :method => :get %>
   </div>
 </div>

@@ -172,7 +172,7 @@ describe User do
         :created_at => 1.hour.ago)
     end
     it "should have replies in right order" do
-      @user.replies.should == [ newer_reply, older_reply ]
+      @user.replies.should == [ older_reply, newer_reply ]
     end
   end
 

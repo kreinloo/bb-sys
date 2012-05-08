@@ -1,13 +1,45 @@
 <div class="row">
   <div class="span12">
-    <%= button_to "Back to posts", posts_path,
-      :class => "btn btn-large btn-primary", :method => :get %>
-    <h1 class="page-header"><%= @post.title %></h1>
-    <i>author:</i> <b><%= @user.name %></b> <i>posted:</i> <b><%= time_ago_in_words(@post.created_at) %> ago</b>
-    <div class="hero-unit post">
-      <p>
+
+    <h1 class="post-title"><%= @post.title %></h1>
+    <i>by <b> <%= link_to @post.user.name, user_path(@post.user) %>
+    </b> <%= time_ago_in_words(@post.created_at) %> ago</i>
+    <div class="post">
       <%= @post.body %>
-      </p>
     </div>
+
+    <div class="post-replies">
+      <% @post.replies.each do |reply| %>
+        <div class="reply">
+          <i>comment by <%= link_to reply.user.name, user_path(reply.user) %>
+          <%= time_ago_in_words(reply.created_at) %> ago</i>
+          <br/>
+          <%= reply.body %>
+        </div>
+      <% end %>
+    </div>
+
+    <% if signed_in? %>
+      <div class="post-reply">
+        <%= form_for @reply do |f| %>
+          <%= f.label "Post your reply" %>
+          <%= f.text_area :body, :rows => 5 %>
+          <%= f.hidden_field :post_id %>
+          <br/>
+          <%= f.submit "Add reply",
+            :class => "btn btn-large btn-primary btn-left" %>
+        <% end %>
+      </div>
+    <%= button_to "Back to posts", posts_path,
+      :class => "btn btn-large btn-danger btn-left btn-posts-back",
+      :method => :get %>
+    <% else %>
+      <p>
+        Please <%= link_to "sign in", signin_path %> in order to add a comment.
+      </p>
+    <%= button_to "Back to posts", posts_path,
+      :class => "btn btn-large btn-danger btn-left",
+      :method => :get %>
+    <% end %>
   </div>
 </div>

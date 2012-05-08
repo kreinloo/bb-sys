@@ -1,11 +1,12 @@
 <% provide :title, @user.name %>
 <div class="row">
   <div class="span12">
-    <div class="userinfo">
+    <div class="userinfo center">
       <h1><%= @user.name %></h1>
       <h3><%= @user.email %></h3>
-      posts: <%= @user.posts.count %><br/>
-      replies: <%= @user.replies.count %><br/>
+      <br/>
+      <h5>posts: <%= @user.posts.count %></h5>
+      <h5>replies: <%= @user.replies.count %></h5>
     </div>
   </div>
 </div>

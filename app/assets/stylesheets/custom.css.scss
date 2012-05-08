@@ -59,9 +59,11 @@ footer ul li {
 }
 
 .post {
-  padding-bottom: 5px;
+  @extend .hero-unit;
+  padding: 10px;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
 .list-ul {
@@ -71,4 +73,65 @@ footer ul li {
 
 .userinfo {
   margin-bottom: 20px;
+}
+
+.post-title {
+  @extend .page-header;
+  padding-bottom: 0px;
+  margin: 0px;
+  border-bottom: 0px;
+}
+
+.post-reply {
+  width: 50%;
+}
+
+.reply {
+  @extend .post;
+  padding: 15px;
+  font-size: 12px;
+
+  i {
+    color: black;
+  }
+}
+
+.post-index-btns {
+  .pagination {
+    float: left;
+    margin: 0px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+  .btn-post {
+    float: right;
+    margin: 0px;
+  }
+  .button_to {
+    margin: 0px;
+  }
+}
+
+.btn-left {
+  float: left;
+}
+
+.btn-posts-back {
+  margin-left: 20px;
+}
+
+.button_to {
+  margin: 0px;
+}
+
+.new_post {
+  margin: 0px;
+}
+
+.new_reply {
+  margin: 0px;
+}
+
+footer {
+  margin-top: 10px;
 }

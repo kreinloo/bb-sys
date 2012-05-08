@@ -54,11 +54,6 @@ describe Reply do
         Reply.new(:user_id => user.id)
       end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
-    it "should not allow access to post_id" do
-      expect do
-        Reply.new(:post_id => post.id)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
-    end
   end
 
 end
